@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Node/Twilio SMS</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>SMS Sender</h1>
+    <form action="/send-sms" method="post">
+      <div class="form-group">
+        <label for="to">To:</label>
+        <input type="text" name="to" required>
+      </div>
+      <div class="form-group">
+        <label for="body">Message:</label>
+        <textarea name="body" rows="4" required></textarea>
+      </div>
+      <input type="submit" value="Send SMS" class="btn">
+    </form>
+    <% if (messageSent) { %>
+    <p class="success">Message sent with SID: <%= messageSentSid %></p>
+    <% } %>
+    <% if (errorMessage) { %>
+    <p class="error">Error sending message: <%= errorMessage %></p>
+    <% } %>
+  </div>
+</body>
+</html>
